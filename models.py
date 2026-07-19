@@ -16,6 +16,8 @@ class User(Base):
         String(50), unique=True, nullable=False)
     email: Mapped[str] = mapped_column(
         String(120), unique=True, nullable=False)
+    password_hash: Mapped[str] = mapped_column(
+        String(200), nullable=False)
     image_file: Mapped[str | None] = mapped_column(
         String(200),
         nullable=True,

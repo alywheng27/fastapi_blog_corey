@@ -716,6 +716,24 @@ async def user_posts_page(
 #     await db.commit()
 
 
+@app.get("/login", include_in_schema=False)
+async def login_page(request: Request):
+    return templates.TemplateResponse(
+        request,
+        "login.html",
+        {"title": "Login"},
+    )
+
+
+@app.get("/register", include_in_schema=False)
+async def register_page(request: Request):
+    return templates.TemplateResponse(
+        request,
+        "register.html",
+        {"title": "Register"},
+    )
+
+
 # StarletteHTTPException Handler
 # Catch if a user type 'posts/99' since the post_id is an integer
 # 404 Not Found - This is the code for not found errors
